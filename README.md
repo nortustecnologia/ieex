@@ -9,7 +9,7 @@ O pacote pode ser instalado da seguinte forma:
   1. Adicione [IEEx](https://hex.pm/packages/ieex) a sua lista de dependência no arquivo `mix.exs`:
 
         def deps do
-          [{:ieex, "~> 0.0.2"}]
+          [{:ieex, "~> 0.0.3"}]
         end
 
 ## Como usar?
