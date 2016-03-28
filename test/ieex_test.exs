@@ -6,6 +6,7 @@ defmodule IEExTest do
     assert AC.is_valid? "01.004.823/001-12"
     assert AC.is_valid? "0180873660999"
     assert AC.is_valid? "019.255.492.75-92"
+    assert IEEx.is_valid? "01.004.823/001-12", "ac"
   end
 
   test "invalid Acre" do
@@ -19,6 +20,7 @@ defmodule IEExTest do
   test "valid Alagoas" do
     assert AL.is_valid? "248521942"
     assert AL.is_valid? "2/48.78.891-4"
+    assert IEEx.is_valid? "248521942", "AL"
   end
 
   test "invalid Alagoas" do
@@ -32,6 +34,7 @@ defmodule IEExTest do
   test "valid Amapá" do
     assert AP.is_valid? "034238557"
     assert AP.is_valid? "03133-553-5"
+    assert IEEx.is_valid? "034238557", "ap"
   end
 
   test "invalid Amapá" do
@@ -46,6 +49,7 @@ defmodule IEExTest do
     assert AM.is_valid? "34.514.391-4"
     assert AM.is_valid? "431191654"
     assert AM.is_valid? "9./3..8.2.4.-4/8+0-9--"
+    assert IEEx.is_valid? "431191654", "am"
   end
 
   test "invalid Amazonas" do
@@ -60,6 +64,7 @@ defmodule IEExTest do
     assert BA.is_valid? "746217-24"
     assert BA.is_valid? "91997929"
     assert BA.is_valid? "5.1-6/8-1.27-0"
+    assert IEEx.is_valid? "91997929", "ba"
   end
 
   test "invalid Bahia" do
@@ -74,6 +79,7 @@ defmodule IEExTest do
     assert CE.is_valid? "99034728-1"
     assert CE.is_valid? "31.736.151-1"
     assert CE.is_valid? "023922095"
+    assert IEEx.is_valid? "023922095", "ce"
   end
 
   test "invalid Ceará" do
@@ -88,6 +94,7 @@ defmodule IEExTest do
     assert DF.is_valid? "07396125001-79"
     assert DF.is_valid? "0737849400167"
     assert DF.is_valid? "077.978.610-0/1-40"
+    assert IEEx.is_valid? "07396125001-79", "df"
   end
 
   test "invalid Distrito Federal" do
@@ -101,6 +108,7 @@ defmodule IEExTest do
   test "valid Espírito Santo" do
     assert ES.is_valid? "793888840"
     assert ES.is_valid? "483.104.7/9-5"
+    assert IEEx.is_valid? "793888840", "es"
   end
 
   test "invalid Espírito Santo" do
@@ -115,6 +123,7 @@ defmodule IEExTest do
     assert GO.is_valid? "15.199.991-0"
     assert GO.is_valid? "110302974"
     assert GO.is_valid? "10.15.89.01-8"
+    assert IEEx.is_valid? "793888840", "es"
   end
 
   test "invalid Goiás" do
@@ -129,6 +138,7 @@ defmodule IEExTest do
     assert MA.is_valid? "12344838-7"
     assert MA.is_valid? "127256342"
     assert MA.is_valid? "12-4.301.52/5"
+    assert IEEx.is_valid? "12344838-7", "ma"
   end
 
   test "invalid Maranhão" do
@@ -142,6 +152,7 @@ defmodule IEExTest do
     assert MT.is_valid? "5830833963-2"
     assert MT.is_valid? "53299114059"
     assert MT.is_valid? "66.781.215.66/0"
+    assert IEEx.is_valid? "53299114059", "mt"
   end
 
   test "invalid Mato Grosso" do
@@ -157,6 +168,7 @@ defmodule IEExTest do
     assert MS.is_valid? "286205831"
     assert MS.is_valid? "28565891-3"
     assert MS.is_valid? "28.936.608/-9"
+    assert IEEx.is_valid? "286205831", "ms"
   end
 
   test "invalid Mato Grosso do Sul" do
@@ -172,6 +184,7 @@ defmodule IEExTest do
     assert PA.is_valid? "15-121985-0"
     assert PA.is_valid? "151992819"
     assert PA.is_valid? "15;13.01-40/9"
+    assert IEEx.is_valid? "15-121985-0", "pa"
   end
 
   test "invalid Pará" do
@@ -186,6 +199,7 @@ defmodule IEExTest do
     assert MG.is_valid? "674.588.079/9345"
     assert MG.is_valid? "6024906343850"
     assert MG.is_valid? "62.30-3.81/17.00?5-5"
+    assert IEEx.is_valid? "674.588.079/9345", "mg"
   end
 
   test "invalid Minas Gerais" do
@@ -200,6 +214,7 @@ defmodule IEExTest do
     assert PB.is_valid? "56452342-9"
     assert PB.is_valid? "926579487"
     assert PB.is_valid? "15.19.08.3/5-4"
+    assert IEEx.is_valid? "926579487", "pb"
   end
 
   test "invalid Paraíba" do
@@ -214,6 +229,7 @@ defmodule IEExTest do
     assert PR.is_valid? "1207580984"
     assert PR.is_valid? "226.91104-92"
     assert PR.is_valid? "52.504.085/2-0"
+    assert IEEx.is_valid? "1207580984", "pr"
   end
 
   test "invalid Paraná" do
@@ -228,6 +244,7 @@ defmodule IEExTest do
     assert PE.is_valid? "2145296-22"
     assert PE.is_valid? "094872473"
     assert PE.is_valid? "40.439.75-5/7"
+    assert IEEx.is_valid? "2145296-22", "pe"
   end
 
   test "invalid Pernambuco" do
@@ -242,6 +259,7 @@ defmodule IEExTest do
     assert PI.is_valid? "57731496-3"
     assert PI.is_valid? "564024252"
     assert PI.is_valid? "7..1/58.87;34-3"
+    assert IEEx.is_valid? "57731496-3", "pi"
   end
 
   test "invalid Piauí" do
@@ -256,6 +274,7 @@ defmodule IEExTest do
     assert RJ.is_valid? "18.701.82-0"
     assert RJ.is_valid? "92359700"
     assert RJ.is_valid? "16/5.22;3-8-4"
+    assert IEEx.is_valid? "18.701.82-0", "rj"
   end
 
   test "invalid Rio de Janeiro" do
@@ -271,6 +290,7 @@ defmodule IEExTest do
     assert RN.is_valid? "207763305"
     assert RN.is_valid? "20.161.2/86-0"
     assert RN.is_valid? "20.0.040.040-0"
+    assert IEEx.is_valid? "20.849.500-2", "rn"
   end
 
   test "invalid Rio Grande do Norte" do
@@ -285,6 +305,7 @@ defmodule IEExTest do
     assert RS.is_valid? "070/8096522"
     assert RS.is_valid? "3269328984"
     assert RS.is_valid? "214/234.62-30"
+    assert IEEx.is_valid? "070/8096522", "rs"
   end
 
   test "invalid Rio Grande do Sul" do
@@ -299,6 +320,7 @@ defmodule IEExTest do
     assert RO.is_valid? "8011548554016-0"
     assert RO.is_valid? "52827981579384"
     assert RO.is_valid? "7;547.948.887/225-1"
+    assert IEEx.is_valid? "8011548554016-0", "ro"
   end
 
   test "invalid Rondônia" do
@@ -313,6 +335,7 @@ defmodule IEExTest do
     assert RR.is_valid? "242518614"
     assert RR.is_valid? "24443456-7"
     assert RR.is_valid? "24.125/557-5"
+    assert IEEx.is_valid? "242518614", "rr"
   end
 
   test "invalid Roraima" do
@@ -327,6 +350,7 @@ defmodule IEExTest do
     assert SC.is_valid? "374.366.640"
     assert SC.is_valid? "710390432"
     assert SC.is_valid? "27.69-58/48-9"
+    assert IEEx.is_valid? "374.366.640", "sc"
   end
 
   test "invalid Santa Catarina" do
@@ -341,6 +365,7 @@ defmodule IEExTest do
     assert SP.is_valid? "879.503.980.415"
     assert SP.is_valid? "421755184500"
     assert SP.is_valid? "69.41-690-191-83"
+    assert IEEx.is_valid? "879.503.980.415", "sp"
   end
 
   test "invalid São Paulo" do
@@ -356,6 +381,7 @@ defmodule IEExTest do
     assert SE.is_valid? "52386202-4"
     assert SE.is_valid? "312744226"
     assert SE.is_valid? "05.685.261-4"
+    assert IEEx.is_valid? "52386202-4", "se"
   end
 
   test "invalid Sergipe" do
@@ -370,6 +396,7 @@ defmodule IEExTest do
     assert TO.is_valid? "4703910099-3"
     assert TO.is_valid? "39033065758"
     assert TO.is_valid? "6.503.737/190-4"
+    assert IEEx.is_valid? "4703910099-3", "to"
   end
 
   test "invalid Tocantins" do
