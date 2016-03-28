@@ -3,29 +3,28 @@ defmodule IEEx.Mixfile do
 
   def project do
     [app: :ieex,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: "Biblioteca para validacao de Inscricao Estadual",
+     package: package,
      deps: deps]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
+  defp package do
+    [
+     files: ["lib", "test", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+     maintainers: ["Edmar Costa"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/edmaarcosta/IEEx"}
+    ]
+  end
+
   defp deps do
     []
   end
