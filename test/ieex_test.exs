@@ -406,4 +406,10 @@ defmodule IEExTest do
     refute TO.is_valid? "86329416-1"
     refute TO.is_valid? "755563652211-2"
   end
+
+  test "module IEEx" do
+    refute IEEx.is_valid?(nil, nil)
+    refute IEEx.is_valid?(nil, "PR")
+    refute IEEx.is_valid?("436.50437-31", nil)
+  end
 end

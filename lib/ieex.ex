@@ -1,5 +1,8 @@
 defmodule IEEx do
   def is_valid?(ie, uf) do
+    if is_nil(ie), do: ie = ""
+    if is_nil(uf), do: uf = ""
+
     case String.upcase(uf) do
       "AC" -> AC.is_valid?(ie)
       "AL" -> AL.is_valid?(ie)
