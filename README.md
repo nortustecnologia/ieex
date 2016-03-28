@@ -2,11 +2,11 @@
 
 Biblioteca para validação de Inscrição Estadual em Elixir
 
-## Installation
+## Instalação
 
 O pacote pode ser instalado da seguinte forma:
 
-  1. Adicione IEEx a sua lista de dependência no arquivo `mix.exs`:
+  1. Adicione [IEEx](https://hex.pm/packages/ieex/0.0.1) a sua lista de dependência no arquivo `mix.exs`:
 
         def deps do
           [{:ieex, "~> 0.0.1"}]
