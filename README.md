@@ -2,7 +2,7 @@
 
 Biblioteca para validação de Inscrição Estadual em Elixir
 
-## Installation
+## Instalação
 
 O pacote pode ser instalado da seguinte forma:
 
