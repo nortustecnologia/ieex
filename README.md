@@ -28,3 +28,11 @@ foram passadas.
 - Remover códigos repetidos.
 - Validar IE sem informar UF (retornar um tuple com as UF válidas
   para IE informada)
+
+## Como contribuir?
+
+1. Fork it
+2. Crie um novo branch com suas mudanças (`git checkout -b my-new-feature`)
+3. Commit suas mudanças (`git commit -am "Added some feature"`)
+4. Push para o branch criado (`git push origin my-new-feature`)
+5. Crie um novo pull request
