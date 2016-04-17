@@ -15,7 +15,7 @@ O pacote pode ser instalado da seguinte forma:
 ## Como usar?
 
 Chamar explicitamente a função "is_valid?" do módulo "IEEx", passando
-como parâmetro a inscrição estudual e a UF do estado que será validado.
+como parâmetro a inscrição estadual e a UF do estado que será validado.
 
 Exemplo:
   - IEEx.is_valid?("332.88892-76", "pr")
