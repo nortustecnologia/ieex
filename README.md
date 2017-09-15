@@ -26,8 +26,7 @@ foram passadas.
 
 ## TODO:
 - Remover códigos repetidos.
-- Validar IE sem informar UF (retornar um tuple com as UF válidas
-  para IE informada)
+- Validar IE sem informar UF.
 
 ## Como contribuir?
 
