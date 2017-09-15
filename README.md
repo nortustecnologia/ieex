@@ -2,9 +2,6 @@
 
 Biblioteca para validação de Inscrição Estadual em Elixir
 
-## NOTA
-`ESTE FOI MEU PRIMEIRO DESENVOLVIMENTO EM ELIXIR. NÃO FIQUE SUPRESO AO ENCONTRAR UM CÓDIGO NÃO TÃO AGRADÁVEL AOS OLHOS`
-
 ## Instalação
 
 O pacote pode ser instalado da seguinte forma:
