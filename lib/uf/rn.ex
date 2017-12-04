@@ -1,11 +1,12 @@
 defmodule RN do
   def is_valid?(input) do
     ie = Util.only_numbers(input)
+
     if String.length(ie) > 0 && ((String.at(ie, 0)<>String.at(ie, 1)) == "20") do
       case String.length(ie) do
-        9 -> RN9.is_valid? ie
-        10 -> RN10.is_valid? ie
-        _ -> false
+        9  -> RN9.is_valid?(ie)
+        10 -> RN10.is_valid?(ie)
+        _  -> false
       end
     else
       false

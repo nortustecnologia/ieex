@@ -1,30 +1,29 @@
 defmodule AL do
-  import Util
+  alias Util
 
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do # 248547232
-    ie = only_numbers(input)
+    ie = Util.only_numbers(input)
 
     if (String.at(ie, 0) == "2" && String.at(ie, 1) == "4") && (String.length(ie) == 9) do
-      # digito verificador
-      first_digs = String.to_integer(String.at(ie, -1))
       # transforma a IE em uma lista de inteiros
-      ie = extract_ie(ie)
+      l_ie = Util.parse_ie(ie)
+
+      [f_dig] = Util.get_digs(l_ie, 1)
+
       # remove o ultimo dígito
-      ie = ie |> List.delete_at(-1)
+      rest_ie = List.delete_at(l_ie, -1)
 
-      dig =
-        Enum.map_reduce(@peso, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-          |> Tuple.to_list
-          |> Enum.at(0)
-          |> Enum.sum
-          |> product
-          |> calc_mod_11
+      dig = 
+        rest_ie
+        |> Util.calc_peso(@peso)
+        |> product
+        |> calc_mod_11
 
-      if dig == 10, do: dig = 0
+      dig = if dig == 10, do: 0, else: dig
 
-      dig == first_digs
+      dig == f_dig
     else
       false
     end

@@ -1,47 +1,59 @@
 defmodule MG do
-  import Util
   @peso1 [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
   @peso2 [3, 2, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do
-    ie = only_numbers(input)
+    ie = Util.only_numbers(input)
+
     # se falta um algoritmo, completa com zero na posição 3
-    if String.length(ie) == 13, do: ie = String.slice(ie, 0, 3)<>"0"<>String.slice(ie, 3, 20)
+    ie = 
+      if String.length(ie) == 13 do
+        String.slice(ie, 0, 3)<>"0"<>String.slice(ie, 3, 20)
+      else
+        ie
+      end
 
     if String.length(ie) == 14 do
+      l_ie = Util.parse_ie(ie)
       # extrai digito verificador
-      first_dv = String.to_integer(String.at(ie, -2))
-      second_dv = String.to_integer(String.at(ie, -1))
-      ie = extract_ie(ie) |> List.delete_at(-1) |> List.delete_at(-1)
+      [f_dig, s_dig] = Util.get_digs(l_ie, 2)
+      # remove digitos verificadores
+      rest_ie = 
+        l_ie 
+        |> List.delete_at(-1) 
+        |> List.delete_at(-1)
 
       dv1 =
-        Enum.map_reduce(@peso1, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-          |> Tuple.to_list
-          |> Enum.at(0)
-          |> Enum.join
-          |> extract_ie
-          |> Enum.sum
-          |> get_first_dv
+        Enum.map_reduce(@peso1, 0, fn(x, idx) -> 
+          {x * Enum.at(rest_ie, idx), 1 + idx} 
+        end)
+        |> Tuple.to_list()
+        |> Enum.at(0)
+        |> Enum.join()
+        |> Util.parse_ie()
+        |> Enum.sum()
+        |> get_first_dv()
 
-      # remove o digito 0 que foi inserido anteriormente e acrescente o digito
-      ie = List.delete_at(ie, 3) |> List.insert_at(-1, dv1)
+      # remove o digito 0 que foi inserido anteriormente e acrescente o digito calculado
+      rest_ie = 
+        rest_ie 
+        |> List.delete_at(3) 
+        |> List.insert_at(-1, dv1)
 
-      dv2 = 0
       resto =
-        Enum.map_reduce(@peso2, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-          |> Tuple.to_list
-          |> Enum.at(0)
-          |> Enum.sum
-          |> rem(11)
-      if (resto != 1 && resto != 0), do: dv2 = (11 - resto)
+        rest_ie
+        |> Util.calc_peso(@peso2)
+        |> rem(11)
 
-      first_dv == dv1 && second_dv == dv2
+      dv2 = if (resto == 1 || resto == 0), do: 0, else: (11 - resto)
+
+      f_dig == dv1 && s_dig == dv2
     else
       false
     end
   end
 
   defp get_first_dv(value) do
-    String.to_integer(Float.to_string((Float.ceil(value / 10) * 10) - value, [decimals: 0]))
+    String.to_integer(:erlang.float_to_binary((Float.ceil(value / 10) * 10) - value, [decimals: 0]))
   end
 end

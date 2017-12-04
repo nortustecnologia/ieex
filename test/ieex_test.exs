@@ -65,6 +65,7 @@ defmodule IEExTest do
     assert BA.is_valid? "91997929"
     assert BA.is_valid? "5.1-6/8-1.27-0"
     assert IEEx.is_valid? "91997929", "ba"
+    assert IEEx.is_valid? "64038705", "BA"
   end
 
   test "invalid Bahia" do
@@ -320,6 +321,7 @@ defmodule IEExTest do
     assert RO.is_valid? "8011548554016-0"
     assert RO.is_valid? "52827981579384"
     assert RO.is_valid? "7;547.948.887/225-1"
+    assert RO.is_valid? "101.62521-3"
     assert IEEx.is_valid? "8011548554016-0", "ro"
   end
 

@@ -8,8 +8,8 @@ defmodule IEEx.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      description: "Biblioteca para validacao de Inscricao Estadual",
-     package: package,
-     deps: deps]
+     package: package(),
+     deps: deps()]
   end
 
   def application do
@@ -21,7 +21,7 @@ defmodule IEEx.Mixfile do
      files: ["lib", "test", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
      maintainers: ["Edmar Costa"],
      licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/edmaarcosta/IEEx"}
+     links: %{"GitHub" => "https://github.com/nortustecnologia/ieex"}
     ]
   end
 
