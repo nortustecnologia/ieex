@@ -1,9 +1,11 @@
-defmodule GO do # 10.987.654-7
-  import Util
+defmodule IEEx.UF.GO do # 10.987.654-7
+  alias IEEx.Util
+
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do
-    ie = only_numbers(input)
+    ie = Util.only_numbers(input)
+
     if (String.length(ie) == 9) do
       case String.at(ie, 0)<>String.at(ie, 1)  do
         "10" -> check_ie(ie)
@@ -17,26 +19,29 @@ defmodule GO do # 10.987.654-7
   end
 
   defp check_ie(ie) do
-    # extrai o digito verificador da IE
-    first_dv = String.to_integer(String.at(ie, -1))
-    ie = extract_ie(ie) |> List.delete_at(-1)
+    l_ie = Util.parse_ie(ie)
+    [f_dig] = Util.get_digs(l_ie, 1)
+    rest_ie = List.delete_at(l_ie, -1)
     #
     resto =
-      Enum.map_reduce(@peso, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-        |> Tuple.to_list
-        |> Enum.at(0)
-        |> Enum.sum
-        |> rem(11)
+      rest_ie
+      |> Util.calc_peso(@peso)
+      |> rem(11)
 
-    ie = String.to_integer(Enum.join(ie))
-    if ie == 11094402 do
-      first_dv == 0 || first_dv == 1
+    ie_join = String.to_integer(Enum.join(rest_ie))
+    
+    if ie_join == 11094402 do
+      f_dig == 0 || f_dig == 1
     else
-      if (resto == 0), do: dv = 0
-      if (resto == 1 && (ie >= 10103105 && ie <= 10119997)), do: dv = 1, else: if resto == 1, do: dv = 0
-      if (resto != 1 && resto != 0), do: dv = (11 - resto)
+      dv = 
+        cond do
+          resto == 0 -> 0
+          resto == 1 && (ie_join >= 10103105 && ie_join <= 10119997) -> 1
+          resto == 1 -> 0
+          true -> (11 - resto)
+        end
 
-      first_dv == dv
+      f_dig == dv
     end
   end
 end

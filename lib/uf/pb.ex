@@ -1,24 +1,27 @@
-defmodule PB do
-  import Util
+defmodule IEEx.UF.PB do
+  alias IEEx.Util
+  
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do
-    ie = only_numbers(input)
+    ie = Util.only_numbers(input)
+
     if String.length(ie) == 9 do
+      l_ie = Util.parse_ie(ie)
       # extrai digito verificador
-      first_dv = String.to_integer(String.at(ie, -1))
-      ie = extract_ie(ie) |> List.delete_at(-1)
+      [f_dig] = Util.get_digs(l_ie, 1)
+      #
+      rest_ie = List.delete_at(l_ie, -1)
       #
       resto =
-        Enum.map_reduce(@peso, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-          |> Tuple.to_list
-          |> Enum.at(0)
-          |> Enum.sum
-          |> rem(11)
-      dv = (11 - resto)
-      if (dv == 10 || dv == 11), do: dv = 0
+        rest_ie
+        |> Util.calc_peso(@peso)
+        |> rem(11)
 
-      first_dv == dv
+      dv = (11 - resto)
+      dv = if (dv == 10 || dv == 11), do: 0, else: dv
+
+      f_dig == dv
     else
       false
     end

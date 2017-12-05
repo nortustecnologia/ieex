@@ -1,37 +1,40 @@
-defmodule PR do
-  import Util
+defmodule IEEx.UF.PR do
+  alias IEEx.Util
+  
   @peso1 [3, 2, 7, 6, 5, 4, 3, 2]
   @peso2 [4, 3, 2, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do
-    ie = only_numbers(input)
+    ie = Util.only_numbers(input)
+
     if String.length(ie) == 10 do
-      dv1 = 0
-      dv2 = 0
+      l_ie = Util.parse_ie(ie)
       # extrai digito verificador
-      first_dv = String.to_integer(String.at(ie, -2))
-      second_dv = String.to_integer(String.at(ie, -1))
-      ie = extract_ie(ie) |> List.delete_at(-1) |> List.delete_at(-1)
+      [f_dig, s_dig] = Util.get_digs(l_ie, 2)
+      # 
+      rest_ie = 
+        l_ie
+        |> List.delete_at(-1) 
+        |> List.delete_at(-1)
+
       #
       resto =
-        Enum.map_reduce(@peso1, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-          |> Tuple.to_list
-          |> Enum.at(0)
-          |> Enum.sum
-          |> rem(11)
-      if (resto != 0 && resto != 1), do: dv1 = (11 - resto)
+        rest_ie
+        |> Util.calc_peso(@peso1)
+        |> rem(11)
 
-      ie = List.insert_at(ie, -1, dv1)
+      dv1 = if (resto == 0 || resto == 1), do: 0, else: (11 - resto)
+
+      rest_ie = List.insert_at(rest_ie, -1, dv1)
       #
       resto =
-        Enum.map_reduce(@peso2, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-          |> Tuple.to_list
-          |> Enum.at(0)
-          |> Enum.sum
-          |> rem(11)
-      if (resto != 0 && resto != 1), do: dv2 = (11 - resto)
+        rest_ie
+        |> Util.calc_peso(@peso2)
+        |> rem(11)
 
-      first_dv == dv1 && second_dv == dv2
+      dv2 = if (resto == 0 || resto == 1), do: 0, else: (11 - resto)
+
+      f_dig == dv1 && s_dig == dv2
     else
       false
     end

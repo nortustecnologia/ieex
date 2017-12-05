@@ -1,30 +1,30 @@
-defmodule IEEx.UF.RN9 do
+defmodule IEEx.UF.PE14 do # 18100100000049
   alias IEEx.Util
-  
-  @peso [9, 8, 7, 6, 5, 4, 3, 2]
+
+  @peso [5, 4, 3, 2, 1, 9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do
     l_ie = 
       input
       |> Util.only_numbers()
       |> Util.parse_ie()
+
     # extrai digito verificador
     [f_dig] = Util.get_digs(l_ie, 1)
     # 
-    rest_ie = List.delete_at(l_ie, -1)
+    rest_ie = 
+      l_ie 
+      |> List.delete_at(-1) 
+
     #
     resto =
       rest_ie
       |> Util.calc_peso(@peso)
-      |> mult(10)
       |> rem(11)
 
-    dv = if (resto == 10), do: 0, else: resto
+    dv = (11 - resto)
+    dv = if dv > 9, do: dv - 10, else: dv
 
     f_dig == dv
-  end
-
-  defp mult(value, exp) do
-    value * exp
   end
 end

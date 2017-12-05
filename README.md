@@ -4,29 +4,42 @@ Biblioteca para validação de Inscrição Estadual em Elixir
 
 ## Instalação
 
-O pacote pode ser instalado da seguinte forma:
+1. Adicione [IEEx](https://hex.pm/packages/ieex) a sua lista de dependência no arquivo `mix.exs`:
 
-  1. Adicione [IEEx](https://hex.pm/packages/ieex) a sua lista de dependência no arquivo `mix.exs`:
+    ```elixir
+    defmodule YourApp.Mixfile do
+      defp deps do
+        [
+          {:ieex, "~> 0.0.3"}
+        ]
+      end
+    end
+    ```
 
-        def deps do
-          [{:ieex, "~> 0.0.3"}]
-        end
+2. Execute `mix deps.get` para instalar a biblioteca
 
-## Como usar?
+## Uso
 
-Chamar explicitamente a função "is_valid?" do módulo "IEEx", passando
+Chamar explicitamente a função `is_valid?` do módulo `IEEx`, passando
 como parâmetro a inscrição estadual e a UF do estado que será validado.
 
-Exemplo:
-  - IEEx.is_valid?("332.88892-76", "pr")
+### Exemplos
+
+``` elixir
+iex> IEEx.is_valid?("56456", "pr")
+false
+
+iex> IEEx.is_valid?("52.504.085/2-0", "pr")
+true
+
+iex> IEEx.is_valid?("1207580984", "PR")
+true
+
+```
 
 Obs.: não importa se você informar a IE com caracteres especiais e/ou UF
 em lowcase ou upcase, a biblioteca não vai considerar como as informações
 foram passadas.
-
-## TODO:
-- Remover códigos repetidos.
-- Validar IE sem informar UF.
 
 ## Como contribuir?
 

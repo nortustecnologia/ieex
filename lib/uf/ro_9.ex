@@ -1,12 +1,18 @@
-defmodule RO9 do
-  import Util
+defmodule IEEx.UF.RO9 do
+  alias IEEx.Util
+  
   @peso [6, 5, 4, 3, 2]
 
   def is_valid?(input) do
-    ie = input
+    l_ie = 
+      input
+      |> Util.only_numbers()
+      |> Util.parse_ie()
     # extrai digito verificador
-    first_dv = String.to_integer(String.at(ie, -1))
-    ie = extract_ie(ie)
+    [f_dig] = Util.get_digs(l_ie, 1)
+    #
+    rest_ie = 
+      l_ie
       |> List.delete_at(-1)
       # remove os três primeiros digitos da IE
       |> List.delete_at(0)
@@ -14,14 +20,13 @@ defmodule RO9 do
       |> List.delete_at(0)
     #
     resto =
-      Enum.map_reduce(@peso, 0, fn(x, idx) -> {x * Enum.at(ie, idx), 1 + idx} end)
-        |> Tuple.to_list
-        |> Enum.at(0)
-        |> Enum.sum
-        |> rem(11)
-    dv = (11 - resto)
-    if dv == 10 || dv == 11, do: dv = (dv - 10)
+      rest_ie
+      |> Util.calc_peso(@peso)
+      |> rem(11)
 
-    first_dv == dv
+    dv = (11 - resto)
+    dv = if (dv == 10 || dv == 11), do: (dv - 10), else: dv
+
+    f_dig == dv
   end
 end

@@ -1,8 +1,43 @@
 defmodule IEEx do
-  def is_valid?(ie, uf) do
-    if is_nil(ie), do: ie = ""
-    if is_nil(uf), do: uf = ""
+  @moduledoc """
+  Valida a inscrição estadual com base na UF.
 
+  ## Exemplos
+
+      iex> IEEx.is_valid?("56456", "pr")
+      false
+
+      iex> IEEx.is_valid?("52.504.085/2-0", "pr")
+      true
+
+      iex> IEEx.is_valid?("1207580984", "PR")
+      true
+
+  """
+  
+  alias IEEx.UF.{AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, 
+    MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO}
+
+  @doc """
+  Verifica se a `ie` é válida para a `uf` informada.
+
+  ## Exemplos
+
+      iex> IEEx.is_valid?("56456", "pr")
+      false
+
+      iex> IEEx.is_valid?("52.504.085/2-0", "pr")
+      true
+
+      iex> IEEx.is_valid?("1207580984", "PR")
+      true
+      
+  """
+  def is_valid?(nil, _), do: false
+  def is_valid?(_, nil), do: false
+  def is_valid?("", _), do: false
+  def is_valid?(_, ""), do: false
+  def is_valid?(ie, uf) do
     case String.upcase(uf) do
       "AC" -> AC.is_valid?(ie)
       "AL" -> AL.is_valid?(ie)
