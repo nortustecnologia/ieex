@@ -10,7 +10,7 @@ Biblioteca para validação de Inscrição Estadual em Elixir
     defmodule YourApp.Mixfile do
       defp deps do
         [
-          {:ieex, "~> 0.0.3"}
+          {:ieex, "~> 0.0.4"}
         ]
       end
     end
