@@ -250,6 +250,7 @@ defmodule IEExTest do
     assert PE.is_valid? "094872473"
     assert PE.is_valid? "40.439.75-5/7"
     assert IEEx.is_valid? "2145296-22", "pe"
+    assert IEEx.is_valid? "18100100000049", "pe"
   end
 
   test "invalid Pernambuco" do
@@ -258,6 +259,7 @@ defmodule IEExTest do
     refute PE.is_valid? "4340909"
     refute PE.is_valid? "18293849283409"
     refute PE.is_valid? "796022667"
+    refute IEEx.is_valid? "18100100000044", "pe"
   end
 
   test "valid Piauí" do
