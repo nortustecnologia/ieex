@@ -1,4 +1,6 @@
-defmodule DF do
+defmodule IEEx.UF.DF do
+  alias IEEx.Util
+  
   @peso1 [4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
   @peso2 [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 

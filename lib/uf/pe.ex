@@ -1,4 +1,6 @@
-defmodule PE do # 032141840
+defmodule IEEx.UF.PE do # 032141840
+  alias IEEx.Util
+
   @peso1 [8, 7, 6, 5, 4, 3, 2]
   @peso2 [9, 8, 7, 6, 5, 4, 3, 2]
 

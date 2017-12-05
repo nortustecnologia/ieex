@@ -1,4 +1,6 @@
-defmodule PR do
+defmodule IEEx.UF.PR do
+  alias IEEx.Util
+  
   @peso1 [3, 2, 7, 6, 5, 4, 3, 2]
   @peso2 [4, 3, 2, 7, 6, 5, 4, 3, 2]
 

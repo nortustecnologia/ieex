@@ -1,4 +1,6 @@
-defmodule MG do
+defmodule IEEx.UF.MG do
+  alias IEEx.Util
+  
   @peso1 [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
   @peso2 [3, 2, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2]
 

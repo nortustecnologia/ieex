@@ -1,4 +1,8 @@
-defmodule SP do
+defmodule IEEx.UF.SP do
+  alias IEEx.Util
+  alias IEEx.UF.SPP
+  alias IEEx.UF.SP12
+  
   def is_valid?(input) do
     ie = Util.only_numbers(input)
 

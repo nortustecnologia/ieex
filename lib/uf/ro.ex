@@ -1,4 +1,8 @@
-defmodule RO do
+defmodule IEEx.UF.RO do
+  alias IEEx.Util
+  alias IEEx.UF.RO9
+  alias IEEx.UF.RO14
+  
   def is_valid?(input) do
     ie = Util.only_numbers(input)
     

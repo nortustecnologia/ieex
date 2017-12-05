@@ -1,4 +1,6 @@
-defmodule BA9 do
+defmodule IEEx.UF.BA9 do
+  alias IEEx.Util
+  
   @peso1 [8, 7, 6, 5, 4, 3, 2]
   @peso2 [9, 8, 7, 6, 5, 4, 3, 2]
 

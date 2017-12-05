@@ -1,4 +1,6 @@
-defmodule RJ do
+defmodule IEEx.UF.RJ do
+  alias IEEx.Util
+  
   @peso [2, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do

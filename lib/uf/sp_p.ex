@@ -1,4 +1,6 @@
-defmodule SPP do
+defmodule IEEx.UF.SPP do
+  alias IEEx.Util
+  
   @peso [1, 3, 4, 5, 6, 7, 8, 10]
 
   def is_valid?(input) do

@@ -1,4 +1,6 @@
-defmodule MT do # 00130000019
+defmodule IEEx.UF.MT do # 00130000019
+  alias IEEx.Util
+
   @peso [3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do

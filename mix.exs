@@ -7,7 +7,7 @@ defmodule IEEx.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     description: "Biblioteca para validacao de Inscricao Estadual",
+     description: "Biblioteca para validação de Inscrição Estadual",
      package: package(),
      deps: deps()]
   end

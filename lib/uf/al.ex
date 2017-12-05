@@ -1,5 +1,5 @@
-defmodule AL do
-  alias Util
+defmodule IEEx.UF.AL do
+  alias IEEx.Util
 
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 

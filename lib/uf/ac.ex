@@ -1,5 +1,5 @@
-defmodule AC do
-  alias Util
+defmodule IEEx.UF.AC do  
+  alias IEEx.Util
 
   @peso1 [4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
   @peso2 [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]

@@ -1,4 +1,6 @@
-defmodule MS do
+defmodule IEEx.UF.MS do
+  alias IEEx.Util
+  
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do

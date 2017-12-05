@@ -1,5 +1,5 @@
-defmodule AM do
-  alias Util
+defmodule IEEx.UF.AM do
+  alias IEEx.Util
 
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 

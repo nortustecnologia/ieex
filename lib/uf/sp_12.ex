@@ -1,4 +1,6 @@
-defmodule SP12 do # 110042490114 - 0 e 4 são digitos verificadores
+defmodule IEEx.UF.SP12 do # 110042490114 - 0 e 4 são digitos verificadores
+  alias IEEx.Util
+  
   @peso1 [1, 3, 4, 5, 6, 7, 8, 10]
   @peso2 [3, 2, 10, 9, 8, 7, 6, 5, 4, 3, 2]
 

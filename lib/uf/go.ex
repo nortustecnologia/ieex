@@ -1,4 +1,6 @@
-defmodule GO do # 10.987.654-7
+defmodule IEEx.UF.GO do # 10.987.654-7
+  alias IEEx.Util
+
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do
@@ -22,11 +24,11 @@ defmodule GO do # 10.987.654-7
     rest_ie = List.delete_at(l_ie, -1)
     #
     resto =
-      l_ie
+      rest_ie
       |> Util.calc_peso(@peso)
       |> rem(11)
 
-    ie_join = String.to_integer(Enum.join(l_ie))
+    ie_join = String.to_integer(Enum.join(rest_ie))
     
     if ie_join == 11094402 do
       f_dig == 0 || f_dig == 1

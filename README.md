@@ -24,10 +24,6 @@ Obs.: não importa se você informar a IE com caracteres especiais e/ou UF
 em lowcase ou upcase, a biblioteca não vai considerar como as informações
 foram passadas.
 
-## TODO:
-- Remover códigos repetidos.
-- Validar IE sem informar UF.
-
 ## Como contribuir?
 
 1. Fork it

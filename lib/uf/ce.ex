@@ -1,4 +1,6 @@
-defmodule CE do
+defmodule IEEx.UF.CE do
+  alias IEEx.Util
+  
   @peso [9, 8, 7, 6, 5, 4, 3, 2]
 
   def is_valid?(input) do
