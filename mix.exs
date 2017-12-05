@@ -18,7 +18,7 @@ defmodule IEEx.Mixfile do
 
   defp package do
     [
-     files: ["lib", "test", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+     files: ["lib", "test", "mix.exs", "README*", "LICENSE*"],
      maintainers: ["Edmar Costa"],
      licenses: ["MIT"],
      links: %{"GitHub" => "https://github.com/nortustecnologia/ieex"}
